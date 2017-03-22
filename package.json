@@ -6,7 +6,7 @@
   "repository": "https://github.com/abathz/simple-react-webpack-boilerplate.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "prod": "webpack -p "
+    "prod": "node ./node_modules/.bin/webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
