@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 
 const App = () => {
    return(
-      <div>React, Redux and Webpack Boilerplate</div>
+      <div className="text-center">
+         <h1>React, Redux and Webpack Boilerplate</h1>
+      </div>
    );
 }
 
