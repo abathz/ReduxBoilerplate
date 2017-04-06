@@ -1,9 +1,9 @@
 {
-  "name": "simple-react-webpack-boilerplate",
+  "name": "ReduxBoilerplate",
   "version": "1.0.0",
-  "description": "Simple React, Redux and Webpack Boilerplate",
+  "description": "ReduxBoilerplate",
   "main": "index.js",
-  "repository": "https://github.com/abathz/simple-react-webpack-boilerplate.git",
+  "repository": "https://github.com/abathz/ReduxBoilerplate.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "prod": "node ./node_modules/.bin/webpack --config webpack.config.prod.js"
