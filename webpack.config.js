@@ -1,4 +1,5 @@
 const path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -29,5 +30,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      React: "react"
+    })
+  ]
 };

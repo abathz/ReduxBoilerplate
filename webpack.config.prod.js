@@ -2,6 +2,7 @@ var webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: [
     './src/index.js'
   ],
@@ -16,9 +17,9 @@ module.exports = {
       loader: 'babel',
       query: {
         presets: ['react', 'es2015', 'stage-1'],
-        env: {
-          production: {
-            presets: ['react-optimize']
+        'env': {
+          'production': {
+            'presets': ['react-optimize']
           }
         }
       }
@@ -45,6 +46,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.ProvidePlugin({
+      React: "react"
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
@@ -58,8 +62,7 @@ module.exports = {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"public/vendor.bundle.js")
-  ],
+    new webpack.optimize.OccurenceOrderPlugin()
+  ]
 };
 
