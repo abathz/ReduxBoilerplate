@@ -2,6 +2,7 @@
 bundle.js
 bundle.js.map
 npm-debug.log
+README.md
 
 # IntelliJ
 *.iml
