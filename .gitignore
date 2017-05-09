@@ -3,6 +3,7 @@ bundle.js
 bundle.js.map
 npm-debug.log
 README.md
+yarn.lock
 
 # IntelliJ
 *.iml
