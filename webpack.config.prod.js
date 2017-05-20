@@ -13,16 +13,16 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [{
+		rules: [{
 			exclude: /node_modules/,
-			loader: 'babel',
-			query: {
+			loader: 'babel-loader',
+			options: {
 				presets: ['react', 'es2015', 'stage-1', 'react-optimize']
 			}
 		}]
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx'],
+		extensions: ['.js', '.jsx'],
 		alias: {
 			components: path.resolve(__dirname, 'src/components/'),
 			actions: path.resolve(__dirname, 'src/actions/'),
@@ -43,6 +43,9 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 		new webpack.ProvidePlugin({
+			"window.jQuery": "jquery",
+			$: "jquery",
+			jQuery: "jquery",
 			React: "react"
 		}),
 		new webpack.DefinePlugin({
@@ -51,14 +54,13 @@ module.exports = {
 			}
 		}),
 		new webpack.optimize.UglifyJsPlugin({
+			sourceMap: true,
 			minimize: true,
 			compressor: {
 				warnings: false
 			}
 		}),
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 }),
-		new webpack.optimize.OccurenceOrderPlugin()
+		new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 })
 	]
 };
 

@@ -1,4 +1,4 @@
-const path = require('path');
+var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
@@ -12,16 +12,18 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [{
-			exclude: /node_modules/,
-			loader: 'babel',
-			query: {
-				presets: ['react', 'es2015', 'stage-1']
+		rules: [
+			{
+				exclude: /node_modules/,
+				loader: 'babel-loader',
+				options: {
+					presets: ['react', 'es2015', 'stage-1']
+				}
 			}
-		}]
+		]
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx'],
+		extensions: ['.js', '.jsx'],
 		alias: {
 			components: path.resolve(__dirname, 'src/components/'),
 			actions: path.resolve(__dirname, 'src/actions/'),
@@ -34,6 +36,9 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.ProvidePlugin({
+			"window.jQuery": "jquery",
+			$: "jquery",
+			jQuery: "jquery",
 			React: "react"
 		})
 	]
