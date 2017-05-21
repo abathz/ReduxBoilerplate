@@ -29,29 +29,17 @@ module.exports = {
 			reducers: path.resolve(__dirname, 'src/reducers')
 		}
 	},
-	loaders: [
-		{
-			test: /\.(gif|png|jpe?g|svg)$/i,
-			loaders: [
-				'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-				'image-webpack-loader?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
-			]
-		}
-	],
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 		new webpack.ProvidePlugin({
-			"window.jQuery": "jquery",
 			$: "jquery",
 			jQuery: "jquery",
 			React: "react"
 		}),
 		new webpack.DefinePlugin({
-			'process.env': {
-				'NODE_ENV': JSON.stringify('production')
-			}
+			'process.env.NODE_ENV': JSON.stringify('production')
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			sourceMap: true,
