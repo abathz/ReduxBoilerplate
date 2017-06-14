@@ -29,6 +29,11 @@ module.exports = {
 			reducers: path.resolve(__dirname, 'src/reducers')
 		}
 	},
+	devServer: {
+		disableHostCheck: true,
+		historyApiFallback: true,
+		contentBase: './'
+	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
