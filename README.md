@@ -12,7 +12,9 @@ Starter Kit for React SPA including SCSS.
 In order to run the application:
 
 1. Install node modules
+
    npm: `$ npm install`
+
    yarn: `$ yarn install`
 
 2. Run webpack-dev-server
