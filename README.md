@@ -7,7 +7,7 @@ Starter Kit for React SPA including SCSS.
   * Redux
   * Webpack-dev-server
   * Bootstrap v4
-  * SASS
+  * SCSS
 
 In order to run the application:
 
