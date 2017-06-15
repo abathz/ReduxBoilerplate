@@ -13,7 +13,7 @@ module.exports = {
 	output: {
 		path: __dirname,
 		publicPath: '/',
-		filename: 'bundle.js'
+		filename: 'public/bundle.js'
 	},
 	module: {
 		rules: [
@@ -61,6 +61,6 @@ module.exports = {
 			jQuery: "jquery",
 			React: "react"
 		}),
-		new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity })
+		new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'public/vendor.bundle.js', minChunks: Infinity })
 	]
 };
