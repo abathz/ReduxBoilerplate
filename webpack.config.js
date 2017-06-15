@@ -1,13 +1,15 @@
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require("autoprefixer");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-	entry: [
-		'babel-polyfill',
-		'./src/index.js'
-	],
+	entry: {
+		main: [
+			'babel-polyfill',
+			'./src/index.js'
+		],
+		vendor: ['jquery', 'tether', 'bootstrap']
+	},
 	output: {
 		path: __dirname,
 		publicPath: '/',
@@ -34,7 +36,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
-		modulesDirectories: ['node_modules'],
 		alias: {
 			components: path.resolve(__dirname, 'src/components/'),
 			actions: path.resolve(__dirname, 'src/actions/'),
@@ -49,13 +50,17 @@ module.exports = {
 	plugins: [
 		new ExtractTextPlugin({
 			filename: 'public/site.css',
-			allChunks: false
+			allChunks: true
 		}),
 		new webpack.ProvidePlugin({
+			tether: 'tether',
+			Tether: 'tether',
+			"window.Tether": 'tether',
 			"window.jQuery": "jquery",
 			$: "jquery",
 			jQuery: "jquery",
 			React: "react"
-		})
+		}),
+		new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity })
 	]
 };

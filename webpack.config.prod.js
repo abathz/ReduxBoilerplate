@@ -1,25 +1,39 @@
+var path = require('path');
 var webpack = require('webpack');
-const path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	devtool: 'cheap-module-source-map',
-	entry: [
-		'babel-polyfill',
-		'./src/index.js'
-	],
+	entry: {
+		main: [
+			'babel-polyfill',
+			'./src/index.js'
+		],
+		vendor: ['jquery', 'tether', 'bootstrap']
+	},
 	output: {
 		path: __dirname,
 		publicPath: '/',
 		filename: 'bundle.js'
 	},
 	module: {
-		rules: [{
-			exclude: /node_modules/,
-			loader: 'babel-loader',
-			options: {
-				presets: ['react', 'es2015', 'stage-1', 'react-optimize']
+		rules: [
+			{
+				exclude: /node_modules/,
+				loader: 'babel-loader',
+				options: {
+					presets: ['react', 'es2015', 'stage-1', 'react-optimize']
+				}
+			},
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract("css-loader")
+			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract('css-loader!sass-loader')
 			}
-		}]
+		]
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
@@ -29,16 +43,18 @@ module.exports = {
 			reducers: path.resolve(__dirname, 'src/reducers')
 		}
 	},
-	devServer: {
-		disableHostCheck: true,
-		historyApiFallback: true,
-		contentBase: './'
-	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
+		new ExtractTextPlugin({
+			filename: 'public/site.css',
+			allChunks: true
+		}),
 		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 		new webpack.ProvidePlugin({
+			tether: 'tether',
+			Tether: 'tether',
+			"window.Tether": 'tether',
+			"window.jQuery": "jquery",
 			$: "jquery",
 			jQuery: "jquery",
 			React: "react"
@@ -53,7 +69,7 @@ module.exports = {
 				warnings: false
 			}
 		}),
-		new webpack.optimize.MinChunkSizePlugin({ minChunkSize: 10000 })
+		new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity })
 	]
 };
 
