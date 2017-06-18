@@ -5,7 +5,7 @@ Starter Kit for React SPA including SCSS.
 
   * React
   * Redux
-  * Webpack-dev-server
+  * Webpack
   * Bootstrap v4
   * SCSS
 
@@ -17,17 +17,28 @@ In order to run the application:
 
    yarn: `$ yarn install`
 
-2. Run webpack-dev-server
+2. For development, build the assets and run server
    ```
    $ npm start
    ```
 
-3. For production and build the assets
+3. For production, build the assets and run server
    ```
    $ npm run prod
    ```
 
-By default, this will start up on [`http://localhost:8080`](http://localhost:8080)
+By default, this will start up on [`http://localhost:3000`](http://localhost:3000)
+
+
+you can change that port in `server.js`
+
+```javascript
+//server.js
+
+...
+app.listen(yourPort); //Default port 3000
+
+```
 
 If you want to colaborate with this repo, you can fork this repo and i will really appreciate to make this repo useful for everyone.
 
