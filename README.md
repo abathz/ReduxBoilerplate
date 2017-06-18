@@ -1,5 +1,5 @@
 # React Boilerplate
-This repo is simple react boilerplate. It's just React only without any server-side.
+This repo is simple react boilerplate and run on ExpressJS
 
 Starter Kit for React SPA including SCSS.
 
