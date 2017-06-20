@@ -4,7 +4,7 @@ var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var app = express();
 
-var initRoutes = require('./route');
+var initRoutes = require('./routes');
 
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");

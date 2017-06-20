@@ -5,9 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/abathz/react-redux-boilerplate.git",
   "scripts": {
-    "start": "node ./server/index & NODE_ENV=development node server",
-    "dev-client": "NODE_ENV=development node server",
-    "prod-client": "webpack --config webpack.config.prod.js && NODE_ENV=production node server"
+    "start": "webpack --config webpack.config.prod.js & node ./server/index & NODE_ENV=production node server",
+    "prod-client": "webpack --config webpack.config.prod.js && NODE_ENV=production node server",
+    "dev-client": "NODE_ENV=development node server"
   },
   "author": "",
   "license": "ISC",
