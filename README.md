@@ -36,7 +36,7 @@ you can change that port in `server.js`
 //server.js
 
 ...
-app.listen(yourPort); //Default port 3000
+app.listen(yourPort); //Default port 8080
 
 ```
 

@@ -5,8 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/abathz/react-redux-boilerplate.git",
   "scripts": {
-    "start": "NODE_ENV=development node server",
-    "prod": "webpack --config webpack.config.prod.js && NODE_ENV=production node server"
+    "start": "node ./server/index & NODE_ENV=development node server",
+    "dev-client": "NODE_ENV=development node server",
+    "prod-client": "webpack --config webpack.config.prod.js && NODE_ENV=production node server"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-1": "^6.1.18",
     "bootstrap": "^4.0.0-alpha.6",
+    "concurrently": "^3.4.0",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.2",
     "lodash": "^3.10.1",

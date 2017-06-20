@@ -24,10 +24,11 @@ if (env == "production") {
 
 	app.use(express.static(__dirname));
 
-	app.get('*', (req, res) => {
+	app.get('*', function (req, res) {
 		res.sendFile(path.resolve(__dirname, 'index.html'));
 	})
 }
 
-app.listen(3000);
-console.log('listening on 3000');
+app.listen(8080, function() {
+	console.log('listening on 8080');
+});
