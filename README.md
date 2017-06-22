@@ -17,23 +17,23 @@ In order to run the application:
 
    yarn: `$ yarn install`
 
-2. For development
+2. For development using `webpack-dev-server`
    
    build the assets and run server local:
    ```
-   $ npm run dev-client
+   $ npm start
    ```
 
 3. For production
    
    build the assets and run server (client-side only):
    ```
-   $ npm run prod-client
+   $ npm run prod:client
    ```
    
    build the assets and run server (client-side & server-side)
    ```
-   $ npm start
+   $ npm run prod:all
    ```
 
 By default, client-side will up on [`http://localhost:8080`](http://localhost:8080) and server-side will up on [`http://localhost:3000`](http://localhost:3000)
