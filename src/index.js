@@ -14,4 +14,4 @@ ReactDOM.render(
 	<Provider store={createStoreWithMiddleware(reducers)}>
 		<Routes history={browserHistory} />
 	</Provider>
-	, document.querySelector('#main'));
+	, document.getElementById('main'));
