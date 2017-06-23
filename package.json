@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"repository": "https://github.com/abathz/react-boilerplate.git",
 	"scripts": {
-		"prod:all": "webpack --config webpack.config.prod.js & forever start ./server/index & forever start server",
+		"start": "webpack-dev-server",
 		"prod:client": "webpack --config webpack.config.prod.js && forever start server",
-		"start": "webpack-dev-server"
+		"prod:all": "webpack --config webpack.config.prod.js & forever start ./server/index & forever start server"
 	},
 	"author": "Adli Fariz Bonaputra <abathz@gmail.com>",
 	"license": "ISC",
