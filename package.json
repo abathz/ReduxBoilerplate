@@ -9,7 +9,7 @@
 		"prod:client": "webpack --config webpack.config.prod.js && forever start server",
 		"start": "webpack-dev-server"
 	},
-	"author": "",
+	"author": "Adli Fariz Bonaputra <abathz@gmail.com>",
 	"license": "ISC",
 	"devDependencies": {
 		"babel-core": "^6.2.1",
