@@ -5,15 +5,14 @@
 	"main": "index.js",
 	"repository": "https://github.com/abathz/react-boilerplate.git",
 	"scripts": {
-		"start": "webpack-dev-server",
-		"prod:client": "webpack --config webpack.config.prod.js && forever start server",
-		"prod:all": "webpack --config webpack.config.prod.js & forever start ./server/index & forever start server"
+		"start": "node server",
+		"build": "webpack --config webpack.config.prod.js"
 	},
 	"author": "Adli Fariz Bonaputra <abathz@gmail.com>",
 	"license": "ISC",
 	"devDependencies": {
 		"babel-core": "^6.2.1",
-		"babel-loader": "^6.2.0",
+		"babel-loader": "^7.1.1",
 		"babel-polyfill": "^6.23.0",
 		"babel-preset-env": "^1.5.2",
 		"babel-preset-react": "^6.1.18",
@@ -26,6 +25,7 @@
 		"sass-loader": "^6.0.5",
 		"style-loader": "^0.18.2",
 		"webpack": "^2.5.1",
+		"webpack-dev-middleware": "^1.11.0",
 		"webpack-dev-server": "^1.14.0"
 	},
 	"dependencies": {

@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+process.traceDeprecation = true
 
 module.exports = {
 	entry: {
@@ -19,14 +21,16 @@ module.exports = {
 		rules: [
 			{
 				exclude: /node_modules/,
-				loader: 'babel-loader',
-				options: {
-					presets: ['env', 'react']
+				use: {
+					loader: 'babel-loader?cacheDirectory=true',
+					options: {
+						presets: [ 'env', 'react' ]
+					}
 				}
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract("css-loader")
+				loader: ExtractTextPlugin.extract('css-loader')
 			},
 			{
 				test: /\.scss$/,

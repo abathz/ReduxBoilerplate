@@ -18,4 +18,13 @@ router.get('/', function (req, res) {
 	])
 })
 
+router.get('/1', function (req, res) {
+	res.json([
+		{
+			id: '1',
+			name: 'A'
+		}
+	])
+})
+
 module.exports = router;

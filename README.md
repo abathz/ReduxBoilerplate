@@ -17,7 +17,7 @@ In order to run the application:
 
    yarn: `$ yarn install`
 
-2. For development using `webpack-dev-server`
+2. For development
    
    build the assets and run server local:
    ```
@@ -26,17 +26,12 @@ In order to run the application:
 
 3. For production
    
-   build the assets and run server (client-side only):
+   build the assets for production:
    ```
-   $ npm run prod:client
-   ```
-   
-   build the assets and run server (client-side & server-side)
-   ```
-   $ npm run prod:all
+   $ npm run build
    ```
 
-By default, client-side will up on [`http://localhost:8080`](http://localhost:8080) and server-side will up on [`http://localhost:3000`](http://localhost:3000)
+By default, client-side and server-side(API) will up on [`http://localhost:8080`](http://localhost:8080) but for API just add `/api`
 
 If you want to colaborate with this repo, you can fork this repo and i will really appreciate to make this repo useful for everyone.
 
