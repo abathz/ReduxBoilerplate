@@ -2,8 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-process.traceDeprecation = true
-
 module.exports = {
 	entry: {
 		main: [
@@ -41,6 +39,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
+			container: path.resolve(__dirname, 'src/container'),
 			components: path.resolve(__dirname, 'src/components/'),
 			actions: path.resolve(__dirname, 'src/actions/'),
 			reducers: path.resolve(__dirname, 'src/reducers/')

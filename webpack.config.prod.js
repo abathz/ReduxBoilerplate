@@ -20,9 +20,11 @@ module.exports = {
 		rules: [
 			{
 				exclude: /node_modules/,
-				loader: 'babel-loader',
-				options: {
-					presets: ['env', 'react', 'react-optimize']
+				use: {
+					loader: 'babel-loader?cacheDirectory=true',
+					options: {
+						presets: [ 'env', 'react' ]
+					}
 				}
 			},
 			{
@@ -38,6 +40,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
+			container: path.resolve(__dirname, 'src/container'),
 			components: path.resolve(__dirname, 'src/components/'),
 			actions: path.resolve(__dirname, 'src/actions/'),
 			reducers: path.resolve(__dirname, 'src/reducers')

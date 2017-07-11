@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
 
 var env = process.env.NODE_ENV;
 
-if (env == "production") {
+if (env === "production") {
 	app.use(express.static(__dirname));
 
 	app.use('/api', require('./server/api'));
