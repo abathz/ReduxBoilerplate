@@ -1,13 +1,15 @@
 # React Boilerplate
 This repo is simple react boilerplate and run on ExpressJS
 
-Starter Kit for React SPA including SCSS.
+Starter Kit for React SPA including SCSS, ESLint use StandardJS .
 
   * React
   * Redux
+  * Express
   * Webpack
   * Bootstrap v4
   * SCSS
+  * ESLint using [Standard Javascript Style](https://standardjs.com/)
 
 In order to run the application:
 
