@@ -1,2 +1,2 @@
-require("bootstrap/dist/css/bootstrap.min.css")
-require("./main.scss");
+require('bootstrap/dist/css/bootstrap.min.css')
+require('./main.scss')
