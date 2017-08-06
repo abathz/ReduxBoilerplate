@@ -23,9 +23,14 @@ if (!isDevelopment) {
   app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'index.html'))
   })
+
+  app.listen(8080, function () {
+    console.log('Your app listening on 8080! have a nice day:)')
+  })
 } else {
   var config = require('./webpack.config.js')
   var compiler = webpack(config)
+  compiler.apply(new webpack.ProgressPlugin())
 
   app.use(express.static(__dirname))
 
@@ -39,8 +44,6 @@ if (!isDevelopment) {
   app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'index.html'))
   })
-}
 
-app.listen(8080, function () {
-  console.log('Your app listening on 8080! have a nice day:)')
-})
+  app.listen(8080)
+}
