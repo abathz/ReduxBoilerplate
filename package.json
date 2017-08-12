@@ -41,9 +41,11 @@
 	},
 	"dependencies": {
 		"axios": "^0.16.2",
-		"bootstrap": "4.0.0-alpha.6",
+		"bootstrap": "4.0.0-beta",
+		"express": "^4.15.4",
 		"jquery": "^3.2.1",
 		"lodash": "^3.10.1",
+		"popper.js": "^1.11.1",
 		"react": "^15.6.1",
 		"react-dom": "^15.6.1",
 		"react-redux": "^5.0.6",
