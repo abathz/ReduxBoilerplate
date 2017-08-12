@@ -13,28 +13,30 @@ Starter Kit for React SPA including SCSS, ESLint use StandardJS .
 
 In order to run the application:
 
-1. Install node modules
+#### 1. Install node modules
 
    npm: `$ npm install`
 
    yarn: `$ yarn install`
 
-2. For development
+#### 2. Build an assets and run the server 
+
+   ##### For development
    
-   build the assets and run server local:
+   build the assets and run the server:
    ```
    $ npm run dev
    ```
 
-3. For production
+   ##### For production
    
-   build the assets for production and server:
+   build the assets for production and run the server:
    ```
    // build the assets
    $ npm run build
 
    // start the server
-   $npm start
+   $ npm start
    ```
 
 By default, client-side and server-side(API) will up on [`http://localhost:8080`](http://localhost:8080) but for API just add `/api`
