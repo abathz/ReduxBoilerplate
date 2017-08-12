@@ -21,14 +21,14 @@ In order to run the application:
 
 ### 2. Build an assets and run the server 
 
-   #### For development
+   **For development**
    
    build the assets and run the server:
    ```
    $ npm run dev
    ```
 
-   #### For production
+   **For production**
    
    build the assets for production and run the server:
    ```
