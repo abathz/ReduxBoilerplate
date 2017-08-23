@@ -61,7 +61,7 @@ module.exports = {
       allChunks: true
     }),
     new webpack.ProvidePlugin({
-      Popper: 'popper.js',
+      Popper: ['popper.js', 'default'],
       'window.jQuery': 'jquery',
       $: 'jquery',
       jQuery: 'jquery',
