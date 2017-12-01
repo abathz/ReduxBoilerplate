@@ -31,19 +31,19 @@ module.exports = {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        use: 'eslint-loader'
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css-loader')
+        use: ExtractTextPlugin.extract('css-loader')
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css-loader!sass-loader')
+        use: ExtractTextPlugin.extract('css-loader!sass-loader')
       },
       {
-        test: /\.(ttf|otf)$/,
-        loader: 'file-loader?name=public/fonts/[name].[ext]'
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: 'file-loader?name=public/fonts/[name].[ext]'
       }
     ]
   },
@@ -51,8 +51,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       container: path.resolve(__dirname, 'src/container'),
-      components: path.resolve(__dirname, 'src/components/'),
-      actions: path.resolve(__dirname, 'src/actions/'),
+      components: path.resolve(__dirname, 'src/components'),
+      actions: path.resolve(__dirname, 'src/actions'),
       reducers: path.resolve(__dirname, 'src/reducers')
     }
   },
