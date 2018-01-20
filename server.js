@@ -2,6 +2,7 @@ var express = require('express')
 var path = require('path')
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
+var DashboardPlugin = require('webpack-dashboard/plugin')
 var routes = require('./server/api')
 
 var app = express()
@@ -24,13 +25,13 @@ if (!isDevelopment) {
     res.sendFile(path.resolve(__dirname, 'index.html'))
   })
 
-  app.listen(8080, function () {
-    console.log('Your app listening on 8080! have a nice day:)')
+  app.listen(3000, function () {
+    console.log('Your app listening on 3000! have a nice day:)')
   })
 } else {
   var config = require('./webpack.config.js')
   var compiler = webpack(config)
-  compiler.apply(new webpack.ProgressPlugin())
+  compiler.apply(new DashboardPlugin())
 
   app.use(express.static(__dirname))
 
