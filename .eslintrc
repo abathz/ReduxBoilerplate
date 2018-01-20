@@ -15,7 +15,7 @@
   },
   "extends": [
     "standard",
-    "plugin:react/recommended"
+    "standard-react"
   ],
   "rules": {
     "no-console": 0,
