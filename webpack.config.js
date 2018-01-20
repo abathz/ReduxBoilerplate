@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
   entry: {
     main: [
-      'babel-polyfill',
+      '@babel/polyfill',
       './src/index.js'
     ],
     vendor: ['jquery', 'popper.js', 'bootstrap']
@@ -22,7 +22,7 @@ module.exports = {
         use: {
           loader: 'babel-loader?cacheDirectory=true',
           options: {
-            presets: ['env', 'react', 'stage-0']
+            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-stage-0']
           }
         }
       },
