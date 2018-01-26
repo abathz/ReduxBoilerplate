@@ -18,6 +18,7 @@
     "standard-react"
   ],
   "rules": {
+    "quotes": 0,
     "no-console": 0,
     "space-before-function-paren": 2,
     "no-return-assign": 0,

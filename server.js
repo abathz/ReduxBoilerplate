@@ -2,7 +2,6 @@ var express = require('express')
 var path = require('path')
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
-var DashboardPlugin = require('webpack-dashboard/plugin')
 var routes = require('./server/api')
 
 var app = express()
@@ -31,7 +30,7 @@ if (!isDevelopment) {
 } else {
   var config = require('./webpack.config.js')
   var compiler = webpack(config)
-  compiler.apply(new DashboardPlugin())
+  compiler.apply(new webpack.ProgressPlugin())
 
   app.use(express.static(__dirname))
 
