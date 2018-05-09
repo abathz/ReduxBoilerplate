@@ -2,7 +2,6 @@ var express = require('express')
 var path = require('path')
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
-var routes = require('./server/api')
 
 var app = express()
 
@@ -17,8 +16,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 
 if (!isDevelopment) {
   app.use(express.static(__dirname))
-
-  app.use('/api', routes)
 
   app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'index.html'))
@@ -38,8 +35,6 @@ if (!isDevelopment) {
     publicPath: config.output.publicPath,
     stats: { colors: true }
   }))
-
-  app.use('/api', routes)
 
   app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname, 'index.html'))
