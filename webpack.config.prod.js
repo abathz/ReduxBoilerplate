@@ -1,12 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
+var MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
+  mode: 'production',
   devtool: 'cheap-module-source-map',
   entry: {
-    main: [
+    app: [
       '@babel/polyfill',
       './src/index.js'
     ],
@@ -14,17 +14,20 @@ module.exports = {
   },
   output: {
     path: __dirname,
-    publicPath: '/',
-    filename: 'public/bundle.js'
+    filename: 'public/[name].bundle.js'
   },
   module: {
     rules: [
       {
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader?cacheDirectory=true',
+          loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-stage-0']
+            presets: [
+              ['@babel/preset-stage-0', { decoratorsLegacy: true }],
+              '@babel/preset-env',
+              '@babel/preset-react'
+            ]
           }
         }
       },
@@ -35,12 +38,11 @@ module.exports = {
         use: 'eslint-loader'
       },
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract('css-loader')
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract('css-loader!sass-loader')
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader'
+        ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -48,21 +50,24 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    minimize: true,
+    noEmitOnErrors: true
+  },
+  performance: { hints: false },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      container: path.resolve(__dirname, 'src/container'),
-      components: path.resolve(__dirname, 'src/components'),
-      actions: path.resolve(__dirname, 'src/actions'),
-      reducers: path.resolve(__dirname, 'src/reducers')
+      container: path.resolve(__dirname, 'src/container/'),
+      components: path.resolve(__dirname, 'src/components/'),
+      actions: path.resolve(__dirname, 'src/actions/'),
+      reducers: path.resolve(__dirname, 'src/reducers/')
     }
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'public/site.css',
-      allChunks: true
+    new MiniCssExtractPlugin({
+      filename: 'public/site.css'
     }),
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.ProvidePlugin({
       Popper: ['popper.js', 'default'],
@@ -72,15 +77,6 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      minimize: true,
-      compressor: {
-        warnings: false
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'public/vendor.bundle.js', minChunks: Infinity }),
-    new SimpleProgressWebpackPlugin()
+    })
   ]
 }
